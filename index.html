@@ -88,7 +88,7 @@
         }
         
         .header {
-            background: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80') no-repeat center center;
+            background: url('ebd05c2fcd87887e80f218917692bfc5654e7e83.jpg') no-repeat center center;
             background-size: cover;
             height: 300px;
             display: flex;
@@ -314,7 +314,7 @@
             color: #ffa500;
         }
         
-        /* 留言功能样式 */
+        /* 留言功能样式 - 已修复 */
         .comments-section {
             background: rgba(50, 0, 0, 0.7);
             border-radius: 15px;
@@ -449,6 +449,25 @@
             font-style: italic;
         }
         
+        .message-alert {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            padding: 15px 25px;
+            background: rgba(90, 0, 0, 0.9);
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            color: #ffd700;
+            font-size: 1.2rem;
+            z-index: 1000;
+            transform: translateX(200%);
+            transition: transform 0.4s ease;
+        }
+        
+        .message-alert.show {
+            transform: translateX(0);
+        }
+        
         .footer {
             background: linear-gradient(90deg, #500000, #300000, #500000);
             padding: 20px;
@@ -512,6 +531,17 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .message-alert {
+                top: 80px;
+                left: 20px;
+                right: 20px;
+                transform: translateY(-150%);
+            }
+            
+            .message-alert.show {
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
@@ -532,7 +562,7 @@
     </div>
     
     <div class="container">
-        <!-- 头部区域 -->
+        <!-- 头部区域 - 使用原始背景图片 -->
         <div class="header">
             <div class="header-content">
                 <div class="greeting">你好</div>
@@ -561,7 +591,7 @@
                 无产阶级失去的只是锁链，他们获得的将是整个世界！
             </div>
             
-            <!-- 音频部分 -->
+            <!-- 音频部分 - 使用原始音频文件名 -->
             <div class="audio-section">
                 <div class="audio-title">国际歌 - 全世界无产阶级的战歌</div>
                 <div class="audio-player">
@@ -607,7 +637,7 @@
                 </div>
             </div>
             
-            <!-- 留言功能部分 -->
+            <!-- 留言功能部分 - 已修复 -->
             <div class="comments-section">
                 <h2 class="comments-title">工人留言板</h2>
                 
@@ -630,17 +660,17 @@
                 <div class="comments-list" id="comments-list">
                     <div class="comment-card">
                         <div class="comment-header">
-                            <div class="comment-author">机器猫同志</div>
+                            <div class="comment-author">电子生命2</div>
                             <div class="comment-date">2023年10月15日</div>
                         </div>
                         <div class="comment-content">
-                            wow
+                            加油
                         </div>
                     </div>
                     
                     <div class="comment-card">
                         <div class="comment-header">
-                            <div class="comment-author">匿名</div>
+                            <div class="comment-author">电子生命1</div>
                             <div class="comment-date">2023年10月10日</div>
                         </div>
                         <div class="comment-content">
@@ -657,9 +687,12 @@
         </div>
     </div>
     
-    <!-- 音频元素 -->
+    <!-- 消息提示 -->
+    <div class="message-alert" id="message-alert">留言已发布！团结就是力量！</div>
+    
+    <!-- 音频元素 - 使用原始音频文件名 -->
     <audio id="international-song" loop>
-        <source src="https://www.marxists.org/history/ussr/sounds/mp3/internationale.mp3" type="audio/mpeg">
+        <source src="国际歌.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素
     </audio>
     
@@ -669,6 +702,7 @@
         const playBtn = document.getElementById('play-btn');
         const volumeControl = document.getElementById('volume');
         const playIcon = playBtn.querySelector('i');
+        const messageAlert = document.getElementById('message-alert');
         
         // 播放/暂停功能
         playBtn.addEventListener('click', () => {
@@ -723,10 +757,21 @@
             }
         }
         
-        // 留言功能
+        // 留言功能 - 修复版本
         const commentForm = document.getElementById('comment-form');
         const commentsList = document.getElementById('comments-list');
         
+        // 显示消息提示
+        function showMessage(text) {
+            messageAlert.textContent = text;
+            messageAlert.classList.add('show');
+            
+            setTimeout(() => {
+                messageAlert.classList.remove('show');
+            }, 3000);
+        }
+        
+        // 处理表单提交
         commentForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -737,7 +782,7 @@
             const commentText = commentInput.value.trim();
             
             if (!commentText) {
-                alert('请填写留言内容！');
+                showMessage('请填写留言内容！');
                 return;
             }
             
@@ -763,7 +808,7 @@
             commentInput.value = '';
             
             // 显示成功消息
-            alert('留言已发布！团结就是力量！');
+            showMessage('留言已发布！团结就是力量！');
         });
         
         // 初始化
