@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新京王嘟嘟个人主页</title>
+    <title>国际工人运动 - 团结就是力量</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Microsoft YaHei', sans-serif;
+            font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: linear-gradient(135deg, #8b0000 0%, #500000 50%, #300000 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -21,246 +22,326 @@
             padding: 20px;
             color: #fff;
             overflow-x: hidden;
-        }
-        
-        .vintage-container {
-            width: 496px;
-            height: 704px;
             position: relative;
-            border: 15px solid #8B4513;
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
-            overflow: hidden;
-            background: url('ebd05c2fcd87887e80f218917692bfc5654e7e83.jpg') no-repeat center center;
-            background-size: cover;
         }
         
-        .vintage-overlay {
+        body::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 40px;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 5%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 5%),
+                repeating-linear-gradient(45deg, rgba(139, 0, 0, 0.2) 0px, rgba(139, 0, 0, 0.2) 2px, transparent 2px, transparent 10px);
+            pointer-events: none;
+            z-index: -1;
         }
         
-        .content-box {
-            background: rgba(25, 25, 40, 0.85);
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 90%;
-            border: 2px solid #DAA520;
-            box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
-        }
-        
-        .greeting {
-            font-size: 3.2rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-            font-weight: bold;
-        }
-        
-        .contact-info {
-            font-size: 1.6rem;
-            color: #FFA500;
-            margin-bottom: 25px;
-            text-shadow: 0 0 8px rgba(255, 165, 0, 0.5);
-        }
-        
-        .main-text {
-            font-size: 2.2rem;
-            color: #E0E0FF;
-            margin-bottom: 40px;
-            text-shadow: 0 0 8px rgba(224, 224, 255, 0.4);
-            line-height: 1.4;
-        }
-        
-        .audio-container {
-            background: rgba(30, 30, 50, 0.9);
-            border-radius: 12px;
-            padding: 20px;
+        .red-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            border: 1px solid #FFD700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-        }
-        
-        .audio-title {
-            font-size: 1.6rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .audio-player {
-            width: 100%;
-            height: 60px;
-            background: rgba(20, 20, 35, 0.8);
-            border-radius: 10px;
+            height: 80px;
+            background: linear-gradient(90deg, #8b0000, #b22222, #8b0000);
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            z-index: 10;
         }
         
-        .audio-controls {
+        .banner-content {
             display: flex;
             align-items: center;
             gap: 15px;
         }
         
+        .hammer-sickle {
+            font-size: 2.5rem;
+            color: gold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        
+        .banner-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: rgba(30, 0, 0, 0.85);
+            border: 5px solid #b22222;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            position: relative;
+            margin-top: 60px;
+        }
+        
+        .header {
+            background: url('ebd05c2fcd87887e80f218917692bfc5654e7e83.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 20px;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(139, 0, 0, 0.7), rgba(0, 0, 0, 0.8));
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 80%;
+        }
+        
+        .greeting {
+            font-size: 3.5rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+        
+        .contact-info {
+            font-size: 2rem;
+            color: #ffa500;
+            margin-bottom: 25px;
+            text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+        }
+        
+        .main-text {
+            font-size: 2.8rem;
+            color: #fff;
+            line-height: 1.4;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 30px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-align: center;
+            margin: 20px 0 40px;
+            text-transform: uppercase;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+        }
+        
+        .manifesto {
+            background: rgba(70, 0, 0, 0.7);
+            border-left: 5px solid #ffd700;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .manifesto-text {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        
+        .quote {
+            font-style: italic;
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ffa500;
+            margin: 30px 0;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        .quote::before, .quote::after {
+            content: """;
+            font-size: 3rem;
+            color: #ffd700;
+            position: absolute;
+        }
+        
+        .quote::before {
+            top: -20px;
+            left: 0;
+        }
+        
+        .quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+        
+        .audio-section {
+            background: rgba(50, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px solid #ffd700;
+            text-align: center;
+        }
+        
+        .audio-title {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+        }
+        
+        .audio-player {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+        
         .play-btn {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff8c00, #ffd700);
-            border: none;
-            color: #1a1a2e;
-            font-size: 1.2rem;
+            background: linear-gradient(135deg, #b22222, #8b0000);
+            border: 3px solid #ffd700;
+            color: #ffd700;
+            font-size: 1.8rem;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 10px rgba(255, 140, 0, 0.5);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #8b0000, #b22222);
         }
         
         .volume-control {
             display: flex;
             align-items: center;
-            gap: 10px;
-            width: 150px;
+            gap: 15px;
+            width: 250px;
+        }
+        
+        .volume-control span {
+            font-size: 1.5rem;
+            color: #ffd700;
         }
         
         .volume-control input {
             width: 100%;
+            height: 8px;
             accent-color: #ffd700;
         }
         
-        .vintage-frame {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-        
-        .frame-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" viewBox="0 0 100 30"><path d="M0,0 L100,0 L95,30 L5,30 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') repeat-x;
-        }
-        
-        .frame-bottom {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 30px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="30" viewBox="0 0 100 30"><path d="M0,30 L100,30 L95,0 L5,0 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') repeat-x;
-        }
-        
-        .frame-left {
-            position: absolute;
-            top: 30px;
-            left: 0;
-            width: 30px;
-            height: calc(100% - 60px);
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="100" viewBox="0 0 30 100"><path d="M0,0 L30,5 L30,95 L0,100 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') repeat-y;
-        }
-        
-        .frame-right {
-            position: absolute;
-            top: 30px;
-            right: 0;
-            width: 30px;
-            height: calc(100% - 60px);
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="100" viewBox="0 0 30 100"><path d="M30,0 L0,5 L0,95 L30,100 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') repeat-y;
-        }
-        
-        .corner {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-        }
-        
-        .corner-tl {
-            top: 0;
-            left: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M0,0 L40,0 L0,40 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') no-repeat;
-        }
-        
-        .corner-tr {
-            top: 0;
-            right: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M0,0 L40,0 L40,40 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') no-repeat;
-        }
-        
-        .corner-bl {
-            bottom: 0;
-            left: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M0,40 L0,0 L40,40 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') no-repeat;
-        }
-        
-        .corner-br {
-            bottom: 0;
-            right: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><path d="M40,0 L40,40 L0,40 Z" fill="%238B4513" stroke="%23DAA520" stroke-width="1"/></svg>') no-repeat;
-        }
-        
-        .vintage-stamp {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 80px;
-            height: 80px;
-            background: rgba(218, 165, 32, 0.2);
-            border: 2px dashed #FFD700;
-            border-radius: 50%;
+        .workers-section {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            align-items: center;
-            transform: rotate(15deg);
+            gap: 30px;
+            margin: 50px 0;
         }
         
-        .stamp-text {
-            color: #FFD700;
-            font-size: 0.8rem;
+        .worker-card {
+            background: rgba(70, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 200px;
+            padding: 20px;
             text-align: center;
-            transform: rotate(-15deg);
-            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+            border: 2px solid #ffd700;
+            transition: transform 0.3s ease;
         }
         
-        .footer-note {
+        .worker-card:hover {
+            transform: translateY(-10px);
+            background: rgba(90, 0, 0, 0.8);
+        }
+        
+        .worker-icon {
+            font-size: 3rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .worker-title {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .worker-desc {
+            font-size: 1.1rem;
+            color: #ffa500;
+        }
+        
+        .footer {
+            background: linear-gradient(90deg, #500000, #300000, #500000);
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 2px solid #ffd700;
+        }
+        
+        .footer-text {
+            font-size: 1.2rem;
+            color: #ffa500;
+        }
+        
+        .red-star {
             position: absolute;
-            bottom: 10px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #aaa;
+            font-size: 1.5rem;
+            color: #ffd700;
+            animation: twinkle 3s infinite;
         }
         
-        @media (max-width: 520px) {
-            body {
-                padding: 10px;
-            }
-            
-            .vintage-container {
-                width: 100%;
-                height: auto;
-                min-height: 704px;
-            }
-            
-            .content-box {
-                padding: 20px;
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .banner-text {
+                font-size: 1.5rem;
             }
             
             .greeting {
@@ -268,61 +349,127 @@
             }
             
             .contact-info {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .main-text {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .manifesto-text {
+                font-size: 1.2rem;
+            }
+            
+            .quote {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="vintage-container">
-        <!-- 复古相框装饰 -->
-        <div class="vintage-frame">
-            <div class="frame-top"></div>
-            <div class="frame-bottom"></div>
-            <div class="frame-left"></div>
-            <div class="frame-right"></div>
-            <div class="corner corner-tl"></div>
-            <div class="corner corner-tr"></div>
-            <div class="corner corner-bl"></div>
-            <div class="corner corner-br"></div>
+    <!-- 装饰性星星 -->
+    <div class="red-star" style="top: 15%; left: 10%;">★</div>
+    <div class="red-star" style="top: 25%; right: 15%;">★</div>
+    <div class="red-star" style="bottom: 30%; left: 20%;">★</div>
+    <div class="red-star" style="bottom: 20%; right: 10%;">★</div>
+    
+    <!-- 顶部横幅 -->
+    <div class="red-banner">
+        <div class="banner-content">
+            <div class="hammer-sickle">☭</div>
+            <div class="banner-text">全世界无产者，联合起来！</div>
+            <div class="hammer-sickle">☭</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- 头部区域 - 使用原始背景图片 -->
+        <div class="header">
+            <div class="header-content">
+                <div class="greeting">你好</div>
+                <div class="contact-info">你好是新京的王嘟嘟吗 - 189 **** 2828</div>
+                <div class="main-text">没人知道这个网站所以也什么都不会泄露就是了</div>
+            </div>
         </div>
         
-        <div class="vintage-overlay">
-            <div class="content-box">
-                <p class="greeting">你好</p>
-                <h5 class="contact-info">你好是新京的王嘟嘟吗 - 189 **** 2828</h5>
-                <h1 class="main-text">没人知道这个网站所以也什么都不会泄露就是了</h1>
+        <div class="content">
+            <!-- 宣言部分 -->
+            <h2 class="section-title">工人宣言</h2>
+            
+            <div class="manifesto">
+                <p class="manifesto-text">一个幽灵，共产主义的幽灵，在欧洲游荡。为了对这个幽灵进行神圣的围剿，旧欧洲的一切势力，教皇和沙皇、梅特涅和基佐、法国的激进派和德国的警察，都联合起来了。</p>
                 
-                <div class="audio-container">
-                    <div class="audio-title">国际歌 - 音频播放</div>
-                    <div class="audio-player">
-                        <div class="audio-controls">
-                            <button class="play-btn" id="play-btn">▶</button>
-                            <div class="volume-control">
-                                <span style="color: #FFD700;">🔈</span>
-                                <input type="range" id="volume" min="0" max="1" step="0.01" value="0.6">
-                                <span style="color: #FFD700;">🔊</span>
-                            </div>
+                <p class="manifesto-text">有哪一个反对党不被它的当政的敌人骂为共产党呢？又有哪一个反对党不拿共产主义这个罪名去回敬更进步的反对党人和自己的反动敌人呢？</p>
+                
+                <p class="manifesto-text">从这一事实中可以得出两个结论：</p>
+                
+                <p class="manifesto-text">共产主义已经被欧洲的一切势力公认为一种势力；</p>
+                
+                <p class="manifesto-text">现在是共产党人向全世界公开说明自己的观点、自己的目的、自己的意图并且拿党自己的宣言来反驳关于共产主义幽灵的神话的时候了。</p>
+            </div>
+            
+            <div class="quote">
+                无产阶级失去的只是锁链，他们获得的将是整个世界！
+            </div>
+            
+            <!-- 音频部分 - 使用原始音频文件名 -->
+            <div class="audio-section">
+                <div class="audio-title">国际歌 - 全世界无产阶级的战歌</div>
+                <div class="audio-player">
+                    <div class="audio-controls">
+                        <button class="play-btn" id="play-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="volume-control">
+                            <span><i class="fas fa-volume-down"></i></span>
+                            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.7">
+                            <span><i class="fas fa-volume-up"></i></span>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <!-- 工人代表部分 -->
+            <h2 class="section-title">全世界无产者代表</h2>
+            
+            <div class="workers-section">
+                <div class="worker-card">
+                    <div class="worker-icon"><i class="fas fa-hard-hat"></i></div>
+                    <div class="worker-title">产业工人</div>
+                    <div class="worker-desc">现代工业的核心力量</div>
+                </div>
+                
+                <div class="worker-card">
+                    <div class="worker-icon"><i class="fas fa-tractor"></i></div>
+                    <div class="worker-title">农业工人</div>
+                    <div class="worker-desc">粮食生产的保障者</div>
+                </div>
+                
+                <div class="worker-card">
+                    <div class="worker-icon"><i class="fas fa-user-md"></i></div>
+                    <div class="worker-title">医疗工作者</div>
+                    <div class="worker-desc">人民健康的守护者</div>
+                </div>
+                
+                <div class="worker-card">
+                    <div class="worker-icon"><i class="fas fa-book"></i></div>
+                    <div class="worker-title">教育工作者</div>
+                    <div class="worker-desc">知识传播的先锋</div>
+                </div>
+            </div>
         </div>
         
-        <div class="vintage-stamp">
-            <div class="stamp-text">新京<br>王嘟嘟<br>个人</div>
-        </div>
-        
-        <div class="footer-note">
-            本页面设计仅用于展示 - 所有信息已做安全处理
+        <div class="footer">
+            <p class="footer-text">全世界无产者联合起来！我们失去的只是锁链，获得的将是整个世界！</p>
+            <p class="footer-text">本页面设计仅用于展示 - 所有信息已做安全处理</p>
         </div>
     </div>
     
-    <!-- 音频元素 -->
+    <!-- 音频元素 - 使用原始音频文件名 -->
     <audio id="international-song" loop>
         <source src="国际歌.mp3" type="audio/mpeg">
         您的浏览器不支持音频元素
@@ -333,15 +480,18 @@
         const audio = document.getElementById('international-song');
         const playBtn = document.getElementById('play-btn');
         const volumeControl = document.getElementById('volume');
+        const playIcon = playBtn.querySelector('i');
         
         // 播放/暂停功能
         playBtn.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
-                playBtn.textContent = '⏸';
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
             } else {
                 audio.pause();
-                playBtn.textContent = '▶';
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
             }
         });
         
@@ -353,14 +503,40 @@
         // 初始音量设置
         audio.volume = volumeControl.value;
         
-        // 音频加载后自动播放
+        // 音频加载后自动播放（如果浏览器允许）
         audio.addEventListener('loadeddata', () => {
-            audio.play().then(() => {
-                playBtn.textContent = '⏸';
-            }).catch(e => {
-                console.log("自动播放被阻止:", e);
-            });
+            // 尝试自动播放
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    playIcon.classList.remove('fa-play');
+                    playIcon.classList.add('fa-pause');
+                }).catch(error => {
+                    console.log("自动播放被阻止，需要用户交互");
+                });
+            }
         });
+        
+        // 创建动态星星
+        function createStars() {
+            const starsContainer = document.body;
+            const starCount = 20;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'red-star';
+                star.innerHTML = '★';
+                star.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 5 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // 初始化
+        createStars();
     </script>
 </body>
 </html>
